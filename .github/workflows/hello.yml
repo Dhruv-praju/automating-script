@@ -21,6 +21,4 @@ jobs:
           cache: 'pip'
 
       - name: Run Hello World script
-        run: |
-          python3 hello.py
-          cat hello_output.txt
+        run: python hello.py
