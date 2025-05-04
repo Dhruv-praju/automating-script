@@ -1,9 +1,9 @@
-name: Hello World Every 5 Minutes
+name: Hello Script Every 5 Minutes
 
 on:
   push:
   schedule:
-    - cron: "*/10 * * * *"  # cron job
+    - cron: "*/5 * * * *"  # cron job to run every 10 minutes
   workflow_dispatch:  
 
 jobs:
@@ -13,5 +13,5 @@ jobs:
     steps: # steps to peform on the OS to run the job
       - name: Checkout code # pulls the code from the repo
         uses: actions/checkout@v4
-      - name: Run Hello World script
+      - name: Run Hello World script # runs the hello.py script
         run: python hello.py
