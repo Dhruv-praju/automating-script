@@ -1,0 +1,26 @@
+name: Hello World Every 5 Minutes
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # cron job
+  workflow_dispatch:  
+
+jobs:
+  run_hello:
+    runs-on: ubuntu-latest # OS to run the job on
+
+    steps: # steps to peform on the OS to run the job
+
+      - name: Checkout code # pulls the code from the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Run Hello World script
+        run: |
+          python3 hello.py
+          cat hello_output.txt
