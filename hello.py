@@ -1,9 +1,7 @@
-# from datetime import datetime
+from datetime import datetime
 
-# writes 'hello world' in log.txt file with current timestamp
-# with open('/tmp/log.txt', 'a') as f:
-#     f.write(f"{datetime.now()}: hello world\n")
-
-names = ['Dhruv','dhruv','DHRUV', 'Dhruv Prajapati', 'DHRUV']
+# writes 'Hello Name' in log.txt file with current timestamp
 import random as rand
-print(f"Hello {names[rand.randint(0,3)]}")
+names = ['Dhruv','dhruv','DHRUV', 'Dhruv Prajapati', 'DHRUV']
+with open('./log.txt', 'a') as f:
+    f.write(f"{datetime.now()}: Hello {names[rand.randint(0,3)]}\n")
