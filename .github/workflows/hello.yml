@@ -1,6 +1,7 @@
 name: Hello World Every 5 Minutes
 
 on:
+  push:
   schedule:
     - cron: "35 0 * * *"  # cron job
   workflow_dispatch:  
