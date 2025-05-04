@@ -3,7 +3,7 @@ name: Hello Script Every 10 Minutes
 on:
   push:
   schedule:
-    - cron: "*/5 * * * *"  # cron job to run every 10 minutes
+    - cron: "*/10 * * * *"  # cron job to run every 10 minutes
   workflow_dispatch:  
 
 jobs:
