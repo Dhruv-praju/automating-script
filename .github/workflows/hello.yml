@@ -10,15 +10,24 @@ jobs:
     runs-on: ubuntu-latest # OS to run the job on
 
     steps: # steps to peform on the OS to run the job
-
       - name: Checkout code # pulls the code from the repo
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
-
       - name: Run Hello World script
         run: python hello.py
+      - name: Check for changes # create env variable indicating if any changes were made
+        id: git-check
+        run: |
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@github.com'
+          git add .
+          git diff --staged --quiet || echo "changes=true" >> $GITHUB_ENV 
+      - name: Commit and push if changes
+        if: env.changes == 'true' # if changes made push new data to repo
+        run: |
+          git commit -m "updated"
+          git push
