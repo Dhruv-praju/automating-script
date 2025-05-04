@@ -12,6 +12,8 @@ jobs:
     steps: # steps to peform on the OS to run the job
       - name: Checkout code # pulls the code from the repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
