@@ -13,10 +13,5 @@ jobs:
     steps: # steps to peform on the OS to run the job
       - name: Checkout code # pulls the code from the repo
         uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
       - name: Run Hello World script
         run: python hello.py
